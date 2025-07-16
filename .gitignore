@@ -1,0 +1,76 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.manifest
+*.spec
+
+# Environment and dependency folders
+.env
+.venv
+env/
+venv/
+ENV/
+Pipfile.lock
+poetry.lock
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# VSCode and other editor config
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.swp
+*.~*
+
+# Test and coverage outputs
+.coverage
+htmlcov/
+.tox/
+.nox/
+pytest_cache/
+
+# OS or archive-specific
+Thumbs.db
+Desktop.ini
+*.zip
+*.tar.gz
+*.rar
+
+# GCP or cloud credentials (be careful!)
+*.json
+*.pem
+*.key
+credentials/
+
+# Cache directories
+.cache/
+__pypackages__/
+.mypy_cache/
+.pytest_cache/
+.dmypy.json
+.pyre/
+
+# Output or results folders
+results/
+output/
+checkpoints/
