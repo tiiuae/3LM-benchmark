@@ -64,13 +64,17 @@ def main(args):
         config = yaml.safe_load(config_file)
     
     # eval_func = eval_mapper.get(args.eval)
-    eval_func = config["backend"]
-    if eval_func:
-        command = eval_func(config)
-    else:
+    backend = config["backend"]
+    eval_func = eval_mapper.get(backend)
+    
+    
+    if eval_func is None :
+        command = eval_mapper(config)
         print("the passed eval is not defined")
-        os.exit(0)
-        
+
+
+    command = eval_func(config)    
+    
     print(command)
     eval_local(command)
 
