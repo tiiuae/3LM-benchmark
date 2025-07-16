@@ -46,20 +46,27 @@ def lighteval(config):
 def evalplus_arabic(config):
 
     model = config["model"]
-    model_args = f'--model {model} --backend {config["engine"]}'
+    dataset = config["dataset"]
+    backend = config.get("engine")
 
-    tp = f'--tp {config["tp"]}' if config["backend"] == "vllm" else ""
-    dtype = f'--dtype {config["dtype"]}' if config["dtype"] else ""
+    tp = f"--tp {config.get('tp')} " if (config.get('tp') and backend == 'vllm') else ""
+    dtype = f"--dtype {config.get('dtype')}" if config.get('dtype') else ""
     
-    dataset = f'--dataset {config["dataset"]}'
-    greedy = '--greedy' if config["greedy"] else ""
-    chat_template = '--force-base_prompt' if config["chat_template"] == "False" else ""
-    enable_thinking = f'--enable_thinking {config["thinking_mode"]}'
-    trailing_newline = f'--trailing_newline {config["trailing_newline"]}'
+    
+    greedy = "--greedy" if config.get("greedy") else ""
+    force_base_prompt =  f"--force_base_prompt" if not config.get("chat_template") else ""
+    enable_thinking = f"--enable_thinking {config.get('thinking_mode')}"  if config.get('thinking_mode') else ""
+    trailing_newline = f"--trailing_newline {config.get('trailing_newline')}"  if config.get('trailing_newline') else ""
 
     command = (
-        f"evalplus.evaluate {model_args} {tp} {dtype}"
-        f" {dataset} {greedy} {chat_template} {enable_thinking} {trailing_newline}"
+        "evalplus.evaluate "
+        f"--model {model} "
+        f"--dataset {dataset} "         
+        f"--backend {backend} "   
+        f"{tp} {dtype} "
+        f"{greedy} "
+        f"{force_base_prompt} {enable_thinking} {trailing_newline}"
+
     )
 
 
