@@ -1,0 +1,3 @@
+[submodule "frameworks/evalplus-arabic"]
+	path = frameworks/evalplus-arabic
+	url = git@github.com:tiiuae/evalplus-arabic.git

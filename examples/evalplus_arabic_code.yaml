@@ -1,1 +1,10 @@
-backend: evalplus
+backend: evalplus_arabic
+model: Qwen/Qwen2.5-0.5B 
+engine: vllm
+tp: 2
+dtype: torch.fp32
+dataset: humaneval
+greedy: True
+chat_template: False
+thinking_mode: False
+trailing_newline: True

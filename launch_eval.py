@@ -43,12 +43,28 @@ def lighteval(config):
     return command
 
 
-def evalplus(config):
-    """
-        Construct the evalplus command 
-    """
-    pass
+def evalplus_arabic(config):
+
+    model = config["model"]
+    model_args = f'--model {model} --backend {config["engine"]}'
+
+    tp = f'--tp {config["tp"]}' if config["backend"] == "vllm" else ""
+    dtype = f'--dtype {config["dtype"]}' if config["dtype"] else ""
     
+    dataset = f'--dataset {config["dataset"]}'
+    greedy = '--greedy' if config["greedy"] else ""
+    chat_template = '--force-base_prompt' if config["chat_template"] == "False" else ""
+    enable_thinking = f'--enable_thinking {config["thinking_mode"]}'
+    trailing_newline = f'--trailing_newline {config["trailing_newline"]}'
+
+    command = (
+        f"evalplus.evaluate {model_args} {tp} {dtype}"
+        f" {dataset} {greedy} {chat_template} {enable_thinking} {trailing_newline}"
+    )
+
+
+    return command
+
 
 
 def eval_local(command):       
@@ -56,7 +72,7 @@ def eval_local(command):
 
 eval_mapper = {
     "lighteval": lighteval,
-    "evalplus": evalplus,
+    "evalplus_arabic": evalplus_arabic,
 }
 
 def main(args):
@@ -64,13 +80,17 @@ def main(args):
         config = yaml.safe_load(config_file)
     
     # eval_func = eval_mapper.get(args.eval)
-    eval_func = config["backend"]
-    if eval_func:
-        command = eval_func(config)
-    else:
+    backend = config["backend"]
+    eval_func = eval_mapper.get(backend)
+    
+    
+    if eval_func is None :
+        command = eval_mapper(config)
         print("the passed eval is not defined")
-        os.exit(0)
-        
+
+
+    command = eval_func(config)    
+    
     print(command)
     eval_local(command)
 
@@ -84,10 +104,10 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     
-    if args.options:
-        print("Available Eval functions\n#########################")
-        for k, _ in eval_mapper.items():
-            print(k)
-        os.exit(0)
+    # if args.options:
+    #     print("Available Eval functions\n#########################")
+    #     for k, _ in eval_mapper.items():
+    #         print(k)
+    #     os.exit(0)
     
     main(args)
