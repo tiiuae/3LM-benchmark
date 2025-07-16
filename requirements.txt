@@ -1,0 +1,6 @@
+omegaconf==2.3.0
+loguru
+# torch==2.5.0
+sentencepiece
+huggingface_hub[cli]
+transformers==4.51.1

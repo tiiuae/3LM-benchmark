@@ -1,0 +1,12 @@
+##lighteval
+model: Qwen/Qwen2.5-1.5B
+chat_template: true
+precision: bfloat16
+
+tasks: synthetic_tasks.txt
+custom_tasks: benchmarks/lighteval/community_tasks/3lm_evals.py
+OUTPUT_DIR: "results"   
+
+## accelerate
+DP: 1  ## specify data parallelism  (copies of the model to run in parallel)
+MP: 1  ## how many gpus each copy of the model will be using

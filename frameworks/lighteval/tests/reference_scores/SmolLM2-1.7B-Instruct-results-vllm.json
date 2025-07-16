@@ -1,0 +1,1798 @@
+{
+  "config_general": {
+    "lighteval_sha": "a1a348a29b3cb86ec0aef1150dc84329f2a429f2",
+    "num_fewshot_seeds": 1,
+    "max_samples": 10,
+    "job_id": 0,
+    "start_time": 776182.471246571,
+    "end_time": 776280.861271711,
+    "total_evaluation_time_secondes": "98.39002513990272",
+    "model_name": "HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "model_sha": "",
+    "model_dtype": null,
+    "model_size": null,
+    "generation_parameters": {
+      "early_stopping": null,
+      "repetition_penalty": 1.0,
+      "frequency_penalty": 0.0,
+      "length_penalty": null,
+      "presence_penalty": 0.0,
+      "max_new_tokens": 2048,
+      "min_new_tokens": 0,
+      "seed": 42,
+      "stop_tokens": null,
+      "temperature": 0.3,
+      "top_k": null,
+      "min_p": 0.0,
+      "top_p": 0.9,
+      "truncate_prompt": null,
+      "response_format": null
+    }
+  },
+  "results": {
+    "leaderboard|arc:challenge|25": {
+      "acc": 0.4,
+      "acc_stderr": 0.16329931618554522,
+      "acc_norm": 0.2,
+      "acc_norm_stderr": 0.13333333333333333
+    },
+    "leaderboard|hellaswag|10": {
+      "acc": 0.5,
+      "acc_stderr": 0.16666666666666666,
+      "acc_norm": 0.8,
+      "acc_norm_stderr": 0.13333333333333333
+    },
+    "leaderboard|mmlu:college_chemistry|5": {
+      "acc": 0.3,
+      "acc_stderr": 0.15275252316519464
+    },
+    "leaderboard|mmlu:us_foreign_policy|5": {
+      "acc": 0.7,
+      "acc_stderr": 0.15275252316519466
+    },
+    "leaderboard|truthfulqa:mc|0": {
+      "truthfulqa_mc1": 0.2,
+      "truthfulqa_mc1_stderr": 0.13333333333333333,
+      "truthfulqa_mc2": 0.480127243519355,
+      "truthfulqa_mc2_stderr": 0.1394010811074212
+    },
+    "lighteval|agieval:aqua-rat|0": {
+      "acc": 0.1,
+      "acc_stderr": 0.09999999999999999,
+      "acc_norm": 0.0,
+      "acc_norm_stderr": 0.0
+    },
+    "lighteval|agieval:logiqa-en|0": {
+      "acc": 0.2,
+      "acc_stderr": 0.13333333333333333,
+      "acc_norm": 0.5,
+      "acc_norm_stderr": 0.16666666666666666
+    },
+    "lighteval|agieval:lsat-ar|0": {
+      "acc": 0.4,
+      "acc_stderr": 0.16329931618554522,
+      "acc_norm": 0.3,
+      "acc_norm_stderr": 0.15275252316519466
+    },
+    "lighteval|agieval:lsat-lr|0": {
+      "acc": 0.5,
+      "acc_stderr": 0.16666666666666666,
+      "acc_norm": 0.3,
+      "acc_norm_stderr": 0.15275252316519464
+    },
+    "lighteval|agieval:lsat-rc|0": {
+      "acc": 0.4,
+      "acc_stderr": 0.16329931618554522,
+      "acc_norm": 0.3,
+      "acc_norm_stderr": 0.15275252316519466
+    },
+    "lighteval|agieval:sat-en|0": {
+      "acc": 0.5,
+      "acc_stderr": 0.16666666666666666,
+      "acc_norm": 0.4,
+      "acc_norm_stderr": 0.16329931618554522
+    },
+    "lighteval|agieval:sat-en-without-passage|0": {
+      "acc": 0.4,
+      "acc_stderr": 0.16329931618554522,
+      "acc_norm": 0.3,
+      "acc_norm_stderr": 0.15275252316519464
+    },
+    "lighteval|bigbench:causal_judgment|3": {
+      "acc": 0.5,
+      "acc_stderr": 0.16666666666666666
+    },
+    "lighteval|bigbench:date_understanding|3": {
+      "acc": 0.4,
+      "acc_stderr": 0.16329931618554522
+    },
+    "lighteval|bigbench:disambiguation_qa|3": {
+      "acc": 0.9,
+      "acc_stderr": 0.09999999999999999
+    },
+    "lighteval|bigbench:geometric_shapes|3": {
+      "acc": 0.0,
+      "acc_stderr": 0.0
+    },
+    "lighteval|bigbench:logical_deduction_five_objects|3": {
+      "acc": 0.1,
+      "acc_stderr": 0.09999999999999999
+    },
+    "lighteval|bigbench:logical_deduction_seven_objects|3": {
+      "acc": 0.1,
+      "acc_stderr": 0.09999999999999999
+    },
+    "lighteval|bigbench:movie_recommendation|3": {
+      "acc": 0.2,
+      "acc_stderr": 0.13333333333333333
+    },
+    "lighteval|bigbench:navigate|3": {
+      "acc": 0.6,
+      "acc_stderr": 0.1632993161855452
+    },
+    "lighteval|bigbench:ruin_names|3": {
+      "acc": 0.1,
+      "acc_stderr": 0.09999999999999999
+    },
+    "lighteval|bigbench:salient_translation_error_detection|3": {
+      "acc": 0.1,
+      "acc_stderr": 0.09999999999999999
+    },
+    "lighteval|bigbench:snarks|3": {
+      "acc": 0.6,
+      "acc_stderr": 0.16329931618554522
+    },
+    "lighteval|bigbench:temporal_sequences|3": {
+      "acc": 0.0,
+      "acc_stderr": 0.0
+    },
+    "lighteval|bigbench:tracking_shuffled_objects_five_objects|3": {
+      "acc": 0.0,
+      "acc_stderr": 0.0
+    },
+    "lighteval|bigbench:tracking_shuffled_objects_seven_objects|3": {
+      "acc": 0.2,
+      "acc_stderr": 0.13333333333333333
+    },
+    "test|gsm8k|0": {
+      "extractive_match": 0.5,
+      "extractive_match_stderr": 0.16666666666666666
+    },
+    "leaderboard|mmlu:_average|5": {
+      "acc": 0.5,
+      "acc_stderr": 0.15275252316519466
+    },
+    "lighteval|agieval:_average|0": {
+      "acc": 0.35714285714285715,
+      "acc_stderr": 0.15093780217475747,
+      "acc_norm": 0.3,
+      "acc_norm_stderr": 0.1344251536447129
+    },
+    "lighteval|bigbench:_average|3": {
+      "acc": 0.27142857142857146,
+      "acc_stderr": 0.10165937727785491
+    },
+    "all": {
+      "acc": 0.32799999999999996,
+      "acc_stderr": 0.12461067705183491,
+      "acc_norm": 0.3444444444444444,
+      "acc_norm_stderr": 0.1341825269088508,
+      "truthfulqa_mc1": 0.2,
+      "truthfulqa_mc1_stderr": 0.13333333333333333,
+      "truthfulqa_mc2": 0.480127243519355,
+      "truthfulqa_mc2_stderr": 0.1394010811074212,
+      "extractive_match": 0.5,
+      "extractive_match_stderr": 0.16666666666666666
+    }
+  },
+  "versions": {
+    "leaderboard|arc:challenge|25": 0,
+    "leaderboard|hellaswag|10": 0,
+    "leaderboard|mmlu:college_chemistry|5": 0,
+    "leaderboard|mmlu:us_foreign_policy|5": 0,
+    "leaderboard|truthfulqa:mc|0": 0,
+    "lighteval|agieval:aqua-rat|0": 0,
+    "lighteval|agieval:logiqa-en|0": 0,
+    "lighteval|agieval:lsat-ar|0": 0,
+    "lighteval|agieval:lsat-lr|0": 0,
+    "lighteval|agieval:lsat-rc|0": 0,
+    "lighteval|agieval:sat-en|0": 0,
+    "lighteval|agieval:sat-en-without-passage|0": 0,
+    "lighteval|bigbench:causal_judgment|3": 0,
+    "lighteval|bigbench:date_understanding|3": 0,
+    "lighteval|bigbench:disambiguation_qa|3": 0,
+    "lighteval|bigbench:geometric_shapes|3": 0,
+    "lighteval|bigbench:logical_deduction_five_objects|3": 0,
+    "lighteval|bigbench:logical_deduction_seven_objects|3": 0,
+    "lighteval|bigbench:movie_recommendation|3": 0,
+    "lighteval|bigbench:navigate|3": 0,
+    "lighteval|bigbench:ruin_names|3": 0,
+    "lighteval|bigbench:salient_translation_error_detection|3": 0,
+    "lighteval|bigbench:snarks|3": 0,
+    "lighteval|bigbench:temporal_sequences|3": 0,
+    "lighteval|bigbench:tracking_shuffled_objects_five_objects|3": 0,
+    "lighteval|bigbench:tracking_shuffled_objects_seven_objects|3": 0,
+    "test|gsm8k|0": 0
+  },
+  "config_tasks": {
+    "leaderboard|arc:challenge": {
+      "name": "arc:challenge",
+      "prompt_function": "arc",
+      "hf_repo": "ai2_arc",
+      "hf_subset": "ARC-Challenge",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train",
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling_from_train",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "leaderboard",
+        "arc"
+      ],
+      "original_num_docs": 1172,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "leaderboard|hellaswag": {
+      "name": "hellaswag",
+      "prompt_function": "hellaswag_harness",
+      "hf_repo": "hellaswag",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train",
+        "test",
+        "validation"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "validation"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling_from_train",
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "leaderboard"
+      ],
+      "original_num_docs": 10042,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "leaderboard|mmlu:college_chemistry": {
+      "name": "mmlu:college_chemistry",
+      "prompt_function": "mmlu_harness",
+      "hf_repo": "lighteval/mmlu",
+      "hf_subset": "college_chemistry",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "auxiliary_train",
+        "test",
+        "validation",
+        "dev"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": "dev",
+      "few_shots_select": "sequential",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "leaderboard",
+        "mmlu"
+      ],
+      "original_num_docs": 100,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "leaderboard|mmlu:us_foreign_policy": {
+      "name": "mmlu:us_foreign_policy",
+      "prompt_function": "mmlu_harness",
+      "hf_repo": "lighteval/mmlu",
+      "hf_subset": "us_foreign_policy",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "auxiliary_train",
+        "test",
+        "validation",
+        "dev"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": "dev",
+      "few_shots_select": "sequential",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "leaderboard",
+        "mmlu"
+      ],
+      "original_num_docs": 100,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "leaderboard|truthfulqa:mc": {
+      "name": "truthfulqa:mc",
+      "prompt_function": "truthful_qa_multiple_choice",
+      "hf_repo": "truthful_qa",
+      "hf_subset": "multiple_choice",
+      "metric": [
+        {
+          "metric_name": [
+            "truthfulqa_mc1",
+            "truthfulqa_mc2"
+          ],
+          "higher_is_better": {
+            "truthfulqa_mc1": true,
+            "truthfulqa_mc2": true
+          },
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "truthfulqa_mc_metrics",
+          "corpus_level_fn": {
+            "truthfulqa_mc1": "mean",
+            "truthfulqa_mc2": "mean"
+          }
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "validation"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "validation"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "leaderboard"
+      ],
+      "original_num_docs": 817,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:aqua-rat": {
+      "name": "agieval:aqua-rat",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-aqua-rat",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 254,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:logiqa-en": {
+      "name": "agieval:logiqa-en",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-logiqa-en",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 651,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:lsat-ar": {
+      "name": "agieval:lsat-ar",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-lsat-ar",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 230,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:lsat-lr": {
+      "name": "agieval:lsat-lr",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-lsat-lr",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 510,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:lsat-rc": {
+      "name": "agieval:lsat-rc",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-lsat-rc",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 269,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:sat-en": {
+      "name": "agieval:sat-en",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-sat-en",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 206,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|agieval:sat-en-without-passage": {
+      "name": "agieval:sat-en-without-passage",
+      "prompt_function": "agieval",
+      "hf_repo": "dmayhem93/agieval-sat-en-without-passage",
+      "hf_subset": "default",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        },
+        {
+          "metric_name": "acc_norm",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling",
+      "generation_size": 1,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 206,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:causal_judgment": {
+      "name": "bigbench:causal_judgment",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "causal_judgement",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 190,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:date_understanding": {
+      "name": "bigbench:date_understanding",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "date_understanding",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 369,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:disambiguation_qa": {
+      "name": "bigbench:disambiguation_qa",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "disambiguation_qa",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 258,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:geometric_shapes": {
+      "name": "bigbench:geometric_shapes",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "geometric_shapes",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 360,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:logical_deduction_five_objects": {
+      "name": "bigbench:logical_deduction_five_objects",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "logical_deduction_five_objects",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 500,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:logical_deduction_seven_objects": {
+      "name": "bigbench:logical_deduction_seven_objects",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "logical_deduction_seven_objects",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 700,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:movie_recommendation": {
+      "name": "bigbench:movie_recommendation",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "movie_recommendation",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 500,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:navigate": {
+      "name": "bigbench:navigate",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "navigate",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 1000,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:ruin_names": {
+      "name": "bigbench:ruin_names",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "ruin_names",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 448,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:salient_translation_error_detection": {
+      "name": "bigbench:salient_translation_error_detection",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "salient_translation_error_detection",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 998,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:snarks": {
+      "name": "bigbench:snarks",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "snarks",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 181,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:temporal_sequences": {
+      "name": "bigbench:temporal_sequences",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "temporal_sequences",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 1000,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:tracking_shuffled_objects_five_objects": {
+      "name": "bigbench:tracking_shuffled_objects_five_objects",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "tracking_shuffled_objects_five_objects",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 1250,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "lighteval|bigbench:tracking_shuffled_objects_seven_objects": {
+      "name": "bigbench:tracking_shuffled_objects_seven_objects",
+      "prompt_function": "bbh_lighteval",
+      "hf_repo": "lighteval/bbh",
+      "hf_subset": "tracking_shuffled_objects_seven_objects",
+      "metric": [
+        {
+          "metric_name": "acc",
+          "higher_is_better": true,
+          "category": "8",
+          "use_case": "1",
+          "sample_level_fn": "compute",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "train"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": -1,
+      "generation_grammar": null,
+      "stop_sequence": [
+        "</s>",
+        "Q=",
+        "\n\n"
+      ],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 1750,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    },
+    "test|gsm8k": {
+      "name": "gsm8k",
+      "prompt_function": "gsm8k",
+      "hf_repo": "gsm8k",
+      "hf_subset": "main",
+      "metric": [
+        {
+          "metric_name": "extractive_match",
+          "higher_is_better": true,
+          "category": "3",
+          "use_case": "1",
+          "sample_level_fn": "sample_level_fn",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "train",
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": "random_sampling_from_train",
+      "generation_size": 512,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "test"
+      ],
+      "original_num_docs": 1319,
+      "effective_num_docs": 10,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    }
+  },
+  "summary_tasks": {
+    "leaderboard|arc:challenge|25": {
+      "hashes": {
+        "hash_examples": "0f147b3f7931a7ed",
+        "hash_full_prompts": "6e7c5b85ac834e73",
+        "hash_input_tokens": "ba65ff11ba7d72d1",
+        "hash_cont_tokens": "4b375c806127f046"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 39,
+      "effective_few_shots": 25.0,
+      "num_truncated_few_shots": 0
+    },
+    "leaderboard|hellaswag|10": {
+      "hashes": {
+        "hash_examples": "43f4b13936101535",
+        "hash_full_prompts": "5a3d34acb7d69b1b",
+        "hash_input_tokens": "d90fbc0fd2883331",
+        "hash_cont_tokens": "1c73c4881919a344"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 10.0,
+      "num_truncated_few_shots": 0
+    },
+    "leaderboard|mmlu:college_chemistry|5": {
+      "hashes": {
+        "hash_examples": "816c33062544f62f",
+        "hash_full_prompts": "8c17fb30cfb9a7c5",
+        "hash_input_tokens": "b33db84aaadad248",
+        "hash_cont_tokens": "1711d3308b18ea9d"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 5.0,
+      "num_truncated_few_shots": 0
+    },
+    "leaderboard|mmlu:us_foreign_policy|5": {
+      "hashes": {
+        "hash_examples": "3b9d6909f46851d7",
+        "hash_full_prompts": "bd10226076d41f3e",
+        "hash_input_tokens": "d8495fa2b23113a4",
+        "hash_cont_tokens": "1711d3308b18ea9d"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 5.0,
+      "num_truncated_few_shots": 0
+    },
+    "leaderboard|truthfulqa:mc|0": {
+      "hashes": {
+        "hash_examples": "da0474ee913e995c",
+        "hash_full_prompts": "45f406040151b0cb",
+        "hash_input_tokens": "70e10d704973e998",
+        "hash_cont_tokens": "24bd152e72fd3eb0"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 119,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:aqua-rat|0": {
+      "hashes": {
+        "hash_examples": "37cd2fe7ec601fba",
+        "hash_full_prompts": "182369dd92aba7bb",
+        "hash_input_tokens": "d986738267677ac9",
+        "hash_cont_tokens": "aac55c4dcb1a3182"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 50,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:logiqa-en|0": {
+      "hashes": {
+        "hash_examples": "a75d571218689cad",
+        "hash_full_prompts": "776dd07fe3ee80ed",
+        "hash_input_tokens": "eaa4adfe20e1b648",
+        "hash_cont_tokens": "4b53ae32c0cfd21b"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:lsat-ar|0": {
+      "hashes": {
+        "hash_examples": "08bf23775a4e93cb",
+        "hash_full_prompts": "03fc722581488c5d",
+        "hash_input_tokens": "ff0790fa249619b5",
+        "hash_cont_tokens": "7a4b85859507a44c"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 50,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:lsat-lr|0": {
+      "hashes": {
+        "hash_examples": "e54d4bceaa45d305",
+        "hash_full_prompts": "1231a9c754a94d6d",
+        "hash_input_tokens": "10109c185991834b",
+        "hash_cont_tokens": "61063e3560b7c7da"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 50,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:lsat-rc|0": {
+      "hashes": {
+        "hash_examples": "23bf4a0671b39b3f",
+        "hash_full_prompts": "014290da088d5eec",
+        "hash_input_tokens": "2890c9271093c91d",
+        "hash_cont_tokens": "856597d83b6ed92b"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 50,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:sat-en|0": {
+      "hashes": {
+        "hash_examples": "b2ba420a4576f977",
+        "hash_full_prompts": "8d7525901a7ef5b6",
+        "hash_input_tokens": "97cc3e4fd5d6fe2d",
+        "hash_cont_tokens": "c70f02e47537fd2a"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|agieval:sat-en-without-passage|0": {
+      "hashes": {
+        "hash_examples": "7ce621e4dd3af4c9",
+        "hash_full_prompts": "f34e868bfaccae2b",
+        "hash_input_tokens": "90d9287132ed1810",
+        "hash_cont_tokens": "c70f02e47537fd2a"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:causal_judgment|3": {
+      "hashes": {
+        "hash_examples": "2c100b0c68d5545f",
+        "hash_full_prompts": "d68c6bea10782a28",
+        "hash_input_tokens": "ef2906d9d21df214",
+        "hash_cont_tokens": "5ae0849cc03dab66"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 20,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:date_understanding|3": {
+      "hashes": {
+        "hash_examples": "762ff89ec1c298f6",
+        "hash_full_prompts": "2a74487de453a538",
+        "hash_input_tokens": "bda1f461ecb0ed23",
+        "hash_cont_tokens": "3d9519a2bf823dc2"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 59,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:disambiguation_qa|3": {
+      "hashes": {
+        "hash_examples": "9d6d21a35e784954",
+        "hash_full_prompts": "a3bcf59ac3ccdcd5",
+        "hash_input_tokens": "0c878b146031dcf9",
+        "hash_cont_tokens": "d0e3493398bf12a8"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 30,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:geometric_shapes|3": {
+      "hashes": {
+        "hash_examples": "cf60c7020e9c3b08",
+        "hash_full_prompts": "f6a1446484a67afb",
+        "hash_input_tokens": "3bfb25b63198c961",
+        "hash_cont_tokens": "fcc0ed541765a0cb"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 102,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:logical_deduction_five_objects|3": {
+      "hashes": {
+        "hash_examples": "a1cbf3215f35d681",
+        "hash_full_prompts": "07e2494528426622",
+        "hash_input_tokens": "3162b669b7ea13d1",
+        "hash_cont_tokens": "951cbe716ebc3b54"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 50,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:logical_deduction_seven_objects|3": {
+      "hashes": {
+        "hash_examples": "ceb3a942b6c745c7",
+        "hash_full_prompts": "12f3514669eb8a39",
+        "hash_input_tokens": "a27d7b5f59b0c50d",
+        "hash_cont_tokens": "095c34403d2e280a"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 70,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:movie_recommendation|3": {
+      "hashes": {
+        "hash_examples": "978c68ca38dfb287",
+        "hash_full_prompts": "770569665683e967",
+        "hash_input_tokens": "6cc039cb7fb263d2",
+        "hash_cont_tokens": "62fffc00627f259e"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:navigate|3": {
+      "hashes": {
+        "hash_examples": "2f05472470b5da7d",
+        "hash_full_prompts": "1fbdf83e24e0fc14",
+        "hash_input_tokens": "5d4b28b64a5349a6",
+        "hash_cont_tokens": "5ae0849cc03dab66"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 20,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:ruin_names|3": {
+      "hashes": {
+        "hash_examples": "a17e9634a21f6d7a",
+        "hash_full_prompts": "269020141252fbe0",
+        "hash_input_tokens": "78607807e659ebe2",
+        "hash_cont_tokens": "62fffc00627f259e"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:salient_translation_error_detection|3": {
+      "hashes": {
+        "hash_examples": "6c38e6d28df37704",
+        "hash_full_prompts": "349c667ebaa29790",
+        "hash_input_tokens": "c8a40c5717361f15",
+        "hash_cont_tokens": "10c4024d1548fb40"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 60,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:snarks|3": {
+      "hashes": {
+        "hash_examples": "f36eecad5ef83e77",
+        "hash_full_prompts": "8b54adf5e43f65e3",
+        "hash_input_tokens": "f8b22e3b90e11cb4",
+        "hash_cont_tokens": "5ae0849cc03dab66"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 20,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:temporal_sequences|3": {
+      "hashes": {
+        "hash_examples": "8d794ee539d1f2d9",
+        "hash_full_prompts": "def1a49dbef66d4a",
+        "hash_input_tokens": "f0a49e831d74579a",
+        "hash_cont_tokens": "62fffc00627f259e"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 40,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:tracking_shuffled_objects_five_objects|3": {
+      "hashes": {
+        "hash_examples": "51c8016f9db3c2ed",
+        "hash_full_prompts": "529776db7ac58121",
+        "hash_input_tokens": "cc73afd12c157b2e",
+        "hash_cont_tokens": "951cbe716ebc3b54"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 50,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "lighteval|bigbench:tracking_shuffled_objects_seven_objects|3": {
+      "hashes": {
+        "hash_examples": "8411a840d78c6505",
+        "hash_full_prompts": "dca6d394153dda55",
+        "hash_input_tokens": "2b38daf9a4962c64",
+        "hash_cont_tokens": "095c34403d2e280a"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 70,
+      "effective_few_shots": 3.0,
+      "num_truncated_few_shots": 0
+    },
+    "test|gsm8k|0": {
+      "hashes": {
+        "hash_examples": "34eb3ecbbd9b0f5b",
+        "hash_full_prompts": "65337c257490f547",
+        "hash_input_tokens": "4f6a065c27223503",
+        "hash_cont_tokens": "e70976920b6fe0e1"
+      },
+      "truncated": 0,
+      "non_truncated": 10,
+      "padded": 0,
+      "non_padded": 10,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    }
+  },
+  "summary_general": {
+    "hashes": {
+      "hash_examples": "956da724abbe4fca",
+      "hash_full_prompts": "df8b40e798448216",
+      "hash_input_tokens": "3efee19a6b146742",
+      "hash_cont_tokens": "085dbb285ac7d4c3"
+    },
+    "truncated": 0,
+    "non_truncated": 270,
+    "padded": 0,
+    "non_padded": 1279,
+    "num_truncated_few_shots": 0
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "config_general": {
+    "lighteval_sha": "831f95ea66f71334a8b7efb86dabfd736476c877",
+    "num_fewshot_seeds": 1,
+    "max_samples": 30,
+    "job_id": 0,
+    "start_time": 2156565.303471529,
+    "end_time": 2156612.900404226,
+    "total_evaluation_time_secondes": "47.59693269710988",
+    "model_name": "Qwen/Qwen2.5-VL-7B-Instruct",
+    "model_sha": "cc594898137f460bfe9f0759e9844b3ce807cfb5",
+    "model_dtype": null,
+    "model_size": null,
+    "generation_parameters": {
+      "early_stopping": null,
+      "repetition_penalty": null,
+      "frequency_penalty": null,
+      "length_penalty": null,
+      "presence_penalty": null,
+      "max_new_tokens": 32768,
+      "min_new_tokens": null,
+      "seed": null,
+      "stop_tokens": null,
+      "temperature": null,
+      "top_k": null,
+      "min_p": null,
+      "top_p": null,
+      "truncate_prompt": null,
+      "response_format": null
+    }
+  },
+  "results": {
+    "lighteval|mmmu_pro:standard-4|0": {
+      "extractive_match": 0.26666666666666666,
+      "extractive_match_stderr": 0.08211756827352527
+    },
+    "all": {
+      "extractive_match": 0.26666666666666666,
+      "extractive_match_stderr": 0.08211756827352527
+    }
+  },
+  "versions": {
+    "lighteval|mmmu_pro:standard-4|0": 0
+  },
+  "config_tasks": {
+    "lighteval|mmmu_pro:standard-4": {
+      "name": "mmmu_pro:standard-4",
+      "prompt_function": "mmmu_pro",
+      "hf_repo": "MMMU/MMMU_pro",
+      "hf_subset": "standard (4 options)",
+      "metric": [
+        {
+          "metric_name": "extractive_match",
+          "higher_is_better": true,
+          "category": "3",
+          "use_case": "1",
+          "sample_level_fn": "sample_level_fn",
+          "corpus_level_fn": "mean"
+        }
+      ],
+      "hf_revision": null,
+      "hf_filter": null,
+      "hf_avail_splits": [
+        "test"
+      ],
+      "trust_dataset": true,
+      "evaluation_splits": [
+        "test"
+      ],
+      "few_shots_split": null,
+      "few_shots_select": null,
+      "generation_size": 30,
+      "generation_grammar": null,
+      "stop_sequence": [],
+      "num_samples": null,
+      "suite": [
+        "lighteval"
+      ],
+      "original_num_docs": 1730,
+      "effective_num_docs": 30,
+      "must_remove_duplicate_docs": false,
+      "version": 0
+    }
+  },
+  "summary_tasks": {
+    "lighteval|mmmu_pro:standard-4|0": {
+      "hashes": {
+        "hash_examples": "3a260c0ce716d724",
+        "hash_full_prompts": "87f07e4aa7e34cb0",
+        "hash_input_tokens": "8c98b8cb09f05daa",
+        "hash_cont_tokens": "0c176c756e99c4e7"
+      },
+      "truncated": 0,
+      "non_truncated": 30,
+      "padded": 0,
+      "non_padded": 30,
+      "effective_few_shots": 0.0,
+      "num_truncated_few_shots": 0
+    }
+  },
+  "summary_general": {
+    "hashes": {
+      "hash_examples": "fcded08b5929f01f",
+      "hash_full_prompts": "d1a11e72227157d1",
+      "hash_input_tokens": "f6d0c11e7e75ac79",
+      "hash_cont_tokens": "7fe757cc0595ed0b"
+    },
+    "truncated": 0,
+    "non_truncated": 30,
+    "padded": 0,
+    "non_padded": 30,
+    "num_truncated_few_shots": 0
+  }
+}
