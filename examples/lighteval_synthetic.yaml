@@ -4,8 +4,8 @@ chat_template: true
 precision: bfloat16
 
 tasks: synthetic_tasks.txt
-custom_tasks: benchmarks/lighteval/community_tasks/3lm_evals.py
-OUTPUT_DIR: "results"   
+custom_tasks: frameworks/lighteval/community_tasks/ara_math_eval.py
+OUTPUT_DIR: "results"
 
 ## accelerate
 DP: 1  ## specify data parallelism  (copies of the model to run in parallel)

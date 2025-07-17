@@ -45,7 +45,7 @@ LETTER_INDICES_AR = ["أ", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ي
 # ArabicMMLU
 # fmt: off
 ILM_SUBSETS = [
-    "math","biology","physics","chemistry","general_science"
+    "Math","Biology","Physics","Chemistry","General_Science"
 ]
 # fmt: on
 
@@ -165,7 +165,7 @@ class CustomArabicMMLUTask(LightevalTaskConfig):
             name=name,
             hf_subset=hf_subset,
             prompt_function=ilm_pfn,
-            hf_repo="falcon-arabic/ilm",
+            hf_repo="tiiuae/SyntheticQA",
             metrics=[Metrics.loglikelihood_acc_norm],
             hf_avail_splits=["train"],
             evaluation_splits=["train"],
