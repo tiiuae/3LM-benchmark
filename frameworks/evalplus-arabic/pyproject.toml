@@ -5,4 +5,5 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools_scm]
 write_to = "evalplus/_version.py"
 version_scheme = "release-branch-semver"
-local_scheme = "no-local-version"
+local_scheme   = "no-local-version"
+fallback_version = "0.1.0"   
