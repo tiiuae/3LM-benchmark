@@ -1,7 +1,7 @@
 backend: evalplus_arabic
-model: Qwen/Qwen2.5-0.5B 
+model: Qwen/Qwen3-4B-Base
 engine: vllm
-tp: 2
+tp: 8
 dtype: auto
 dataset: humaneval
 greedy: True
