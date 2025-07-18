@@ -14,30 +14,25 @@ def lighteval(config):
     CUSTOM_TASKS  = config["custom_tasks"] 
     OUTPUT_DIR  = config["OUTPUT_DIR"]
         
-    model_args = f"pretrained={model},dtype={config['precision']},trust_remote_code={config.get('trust_remote_code', False)}"
+    model_args = f"model_name={model},dtype={config['precision']},trust_remote_code={config.get('trust_remote_code', False)},batch_size={config.get('batch_size', 1)},use_chat_template={config.get('chat_template', False)}"
     accelerate_args = ""
     if  config['DP'] > 1:
         accelerate_args += f"--multi_gpu --num_processes={config['DP']} -m "
     else:
         accelerate_args += f"--num_processes=1 -m "
         
-    template = "--use-chat-template " if config['chat_template'] else ""
     model_parallel = ",model_parallel=False " if config['MP'] == 1 else ",model_parallel=True "
     max_samples = f"--max-samples {config.get('max_samples')}" if config.get('max_samples') else ""
     save_details = f"--save-details " if config.get('save_details') else ""
-    disable_thinking = f"--disable-thinking " if config.get('disable_thinking') else ""
     
     command = (
         f"accelerate launch {accelerate_args} lighteval accelerate "
         f"{model_args}{model_parallel} "
         f"'{TASKS}' "
-        f"--override-batch-size 1 "
         f"--output-dir {OUTPUT_DIR} "
         f"--custom-tasks {CUSTOM_TASKS} "
-        f"{template} "
         f"{save_details} "
         f"{max_samples} "
-        f"{disable_thinking} "
     )
     
     return command
