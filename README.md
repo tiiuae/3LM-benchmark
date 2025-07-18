@@ -1,12 +1,28 @@
+<p align="center">
+  <img src="logo.png" width="120" alt="3LM Logo"/>
+</p>
 
-# 3LM Benchmark: Arabic Evaluation for STEM and Code 🧪💻📚
+<h1 align="center"><strong>3LM Benchmark</strong></h1>
+<h3 align="center">Arabic Evaluation in STEM and Code</h3>
+
+<p align="center">
+  <a href="https://github.com/tiiuae/3LM-benchmark">GitHub</a> ·
+  <a href="https://tiiuae.github.io/3LM-benchmark">Dataset</a> ·
+  <a href="https://arxiv.org/abs/2507.xxxxx">Paper</a>
+</p>
+
+---
+
+
+
+<!-- # 3LM Benchmark: Arabic Evaluation for STEM and Code 🧪💻📚
 
 Welcome to the official repository of **3LM** a comprehensive benchmark suite tailored to evaluate Arabic Large Language Models (LLMs) across scientific and technical domains, including **STEM** (Science, Technology, Engineering, and Mathematics) and **code generation**.
 
 🔗 [Paper on arXiv](https://arxiv.org/abs/2507.xxxxx)  
 📊 [Evaluation Tools](https://github.com/tiiuae/3LM-benchmark)
 
----
+--- -->
 
 ## 🧠 What is 3LM?
 
