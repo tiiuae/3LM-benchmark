@@ -79,7 +79,7 @@ class CustomTask(LightevalTaskConfig):
             hf_subset=hf_subset,
             hf_avail_splits=["train", "test"],  # Make both available
             evaluation_splits=["train", "test"],  # Evaluate both splits together
-            metrics=[Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm],
+            metric=[Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm],
             trust_dataset=True,
             version=0,
         )

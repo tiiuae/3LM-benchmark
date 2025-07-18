@@ -166,7 +166,7 @@ class CustomArabicMMLUTask(LightevalTaskConfig):
             hf_subset=hf_subset,
             prompt_function=ilm_pfn,
             hf_repo="falcon-arabic/ilm",
-            metrics=[Metrics.loglikelihood_acc_norm],
+            metric=[Metrics.loglikelihood_acc_norm],
             hf_avail_splits=["train"],
             evaluation_splits=["train"],
             few_shots_split=["dev"],
