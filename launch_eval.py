@@ -43,12 +43,35 @@ def lighteval(config):
     return command
 
 
-def evalplus(config):
-    """
-        Construct the evalplus command 
-    """
-    pass
+def evalplus_arabic(config):
+
+    model = config["model"]
+    dataset = config["dataset"]
+    backend = config.get("engine")
+
+    tp = f"--tp {config.get('tp')} " if (config.get('tp') and backend == 'vllm') else ""
+    dtype = f"--dtype {config.get('dtype')}" if config.get('dtype') else ""
     
+    
+    greedy = "--greedy" if config.get("greedy") else ""
+    force_base_prompt =  f"--force_base_prompt" if not config.get("chat_template") else ""
+    enable_thinking = f"--enable_thinking {config.get('thinking_mode')}"  if config.get('thinking_mode') else ""
+    trailing_newline = f"--trailing_newline {config.get('trailing_newline')}"  if config.get('trailing_newline') else ""
+
+    command = (
+        "evalplus.evaluate "
+        f"--model {model} "
+        f"--dataset {dataset} "         
+        f"--backend {backend} "   
+        f"{tp} {dtype} "
+        f"{greedy} "
+        f"{force_base_prompt} {enable_thinking} {trailing_newline}"
+
+    )
+
+
+    return command
+
 
 
 def eval_local(command):       
@@ -56,7 +79,7 @@ def eval_local(command):
 
 eval_mapper = {
     "lighteval": lighteval,
-    "evalplus": evalplus,
+    "evalplus_arabic": evalplus_arabic,
 }
 
 def main(args):
@@ -88,10 +111,10 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
     
-    if args.options:
-        print("Available Eval functions\n#########################")
-        for k, _ in eval_mapper.items():
-            print(k)
-        os.exit(0)
+    # if args.options:
+    #     print("Available Eval functions\n#########################")
+    #     for k, _ in eval_mapper.items():
+    #         print(k)
+    #     os.exit(0)
     
     main(args)

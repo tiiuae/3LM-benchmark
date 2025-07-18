@@ -1,1 +1,10 @@
-backend: evalplus
+backend: evalplus_arabic
+model: Qwen/Qwen3-4B-Base
+engine: vllm
+tp: 8
+dtype: auto
+dataset: humaneval
+greedy: True
+chat_template: False
+thinking_mode: False
+trailing_newline: True
