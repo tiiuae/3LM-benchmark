@@ -1,5 +1,10 @@
-community|syn:Math|0|0
-community|syn:Biology|0|0
-community|syn:General_Science|0|0
-community|syn:Chemistry|0|0
-community|syn:Physics|0|0
+community|syn_mcq:Biology|0|0
+community|syn_mcq:Math|0|0
+community|syn_mcq:General_Science|0|0
+community|syn_mcq:Chemistry|0|0
+community|syn_mcq:Physics|0|0
+community|syn_gen:Biology|0|0
+community|syn_gen:Math|0|0
+community|syn_gen:General_Science|0|0
+community|syn_gen:Chemistry|0|0
+community|syn_gen:Physics|0|0

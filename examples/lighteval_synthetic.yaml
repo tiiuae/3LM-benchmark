@@ -5,7 +5,7 @@ precision: bfloat16
 backend: lighteval
 
 tasks: tasks/synthetic_tasks.txt
-custom_tasks: frameworks/lighteval/community_tasks/ara_math_eval.py
+custom_tasks: frameworks/lighteval/community_tasks/3lm_eval.py
 OUTPUT_DIR: "results"
 
 ## accelerate
