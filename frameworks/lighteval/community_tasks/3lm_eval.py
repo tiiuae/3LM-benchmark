@@ -246,6 +246,163 @@ def syn_gen_pfn(line, task_name: str = None):
         gold_index=answer_index  # Index of the correct answer in choices
     )
 
+def native_mcq_pfn(line, task_name: str = None, verbose: bool = False):
+    instruction = "السؤال التالي هو سؤال متعدد الخيارات. اختر الإجابة الصحيحة:\n\n"
+
+    raw_choices_input = line["choices"]
+    try:
+        raw_choices: List[str] = (
+            ast.literal_eval(raw_choices_input)
+            if isinstance(raw_choices_input, str)
+            else raw_choices_input
+        )
+    except Exception as e:
+        print(f"[ERROR] Failed to parse choices from: {raw_choices_input}")
+        raise
+
+    correct_label: str = line["correct_choice"].strip()
+    question_text: str = line["question_text"].strip()
+
+    valid_keys_arabic = []
+    cleaned_choices = []
+
+    for i, choice in enumerate(raw_choices):
+        match = re.match(r"^\((.)\)\s*(.*)", choice)
+        if match:
+            label = match.group(1).strip()
+            text = match.group(2).strip()
+            valid_keys_arabic.append(label)
+            cleaned_choices.append(text)
+        else:
+            print(f"[WARNING] Skipping malformed choice at index {i}: '{choice}' — expected format like '(أ) النص'")
+
+    if len(valid_keys_arabic) < 2:
+        print(f"[ERROR] Too few valid choices parsed for question: '{question_text}'")
+        print(f"[ERROR] Raw choices: {raw_choices}")
+        raise ValueError("Insufficient valid choices parsed.")
+
+    try:
+        answer_index = valid_keys_arabic.index(correct_label)
+    except ValueError:
+        print(f"[ERROR] Correct label '{correct_label}' not found in valid labels {valid_keys_arabic}")
+        print(f"[ERROR] Full line: {line}")
+        raise
+
+    query = f"{instruction}{question_text}\n"
+    query += "".join([f"{label}. {text}\n" for label, text in zip(valid_keys_arabic, cleaned_choices)])
+    query += "الإجابة:"
+
+    if verbose:
+        print(f"\n[DEBUG] Processed question: {question_text}")
+        print(f"[DEBUG] Labels: {valid_keys_arabic}")
+        print(f"[DEBUG] Gold label: {correct_label} -> index {answer_index}")
+        print(f"[DEBUG] Query preview:\n{query}")
+
+    return Doc(
+        task_name=task_name,
+        query=query,
+        choices=valid_keys_arabic,
+        gold_index=answer_index,
+        instruction=instruction,
+    )
+
+def native_completion_pfn(line, task_name: str = None, verbose: bool = False):
+    instruction = "السؤال التالي هو سؤال متعدد الخيارات. اختر الإجابة الصحيحة:\n\n"
+
+    raw_choices_input = line["choices"]
+    try:
+        raw_choices: List[str] = (
+            ast.literal_eval(raw_choices_input)
+            if isinstance(raw_choices_input, str)
+            else raw_choices_input
+        )
+    except Exception as e:
+        print(f"[ERROR] Failed to parse choices from: {raw_choices_input}")
+        raise
+
+    correct_label: str = line["correct_choice"].strip()
+    question_text: str = line["question_text"].strip()
+
+    valid_keys_arabic = []
+    cleaned_choices = []
+
+    for i, choice in enumerate(raw_choices):
+        match = re.match(r"^\((.)\)\s*(.*)", choice)
+        if match:
+            label = match.group(1).strip()
+            text = match.group(2).strip()
+            valid_keys_arabic.append(label)
+            cleaned_choices.append(text)
+        else:
+            print(f"[WARNING] Skipping malformed choice at index {i}: '{choice}' — expected format like '(أ) النص'")
+
+    if len(valid_keys_arabic) < 2:
+        print(f"[ERROR] Too few valid choices parsed for question: '{question_text}'")
+        print(f"[ERROR] Raw choices: {raw_choices}")
+        raise ValueError("Insufficient valid choices parsed.")
+
+    try:
+        answer_index = valid_keys_arabic.index(correct_label)
+    except ValueError:
+        print(f"[ERROR] Correct label '{correct_label}' not found in valid labels {valid_keys_arabic}")
+        print(f"[ERROR] Full line: {line}")
+        raise
+
+    query = f"{instruction}{question_text}\n"
+    query += "الإجابة:"
+
+    if verbose:
+        print(f"\n[DEBUG] Processed question: {question_text}")
+        print(f"[DEBUG] Labels: {valid_keys_arabic}")
+        print(f"[DEBUG] Gold label: {correct_label} -> index {answer_index}")
+        print(f"[DEBUG] Query preview:\n{query}")
+
+    return Doc(
+        task_name=task_name,
+        query=query,
+        choices=cleaned_choices,
+        gold_index=answer_index,
+        instruction=instruction,
+    )
+
+class CustomNativeMCQTask(LightevalTaskConfig):
+    def __init__(self, hf_repo, pfn_func, name, hf_subset=None):
+        super().__init__(
+            name=name,
+            prompt_function=native_mcq_pfn,
+            suite=["community"],
+            hf_repo=hf_repo,
+            hf_subset=hf_subset or None, 
+            hf_avail_splits=["test"],
+            evaluation_splits=["test"],
+            metric=[Metrics.loglikelihood_acc_norm],
+            trust_dataset=True,
+            version=0,
+        )
+
+subsets = [("NativeQA","tiiuae/NativeQA"), ("NativeQA-RDP","tiiuae/NativeQA-RDP")]
+
+NATIVE_MCQ_TASKS = [CustomNativeMCQTask(name=f"MCQ_{sub}", hf_repo=repo, pfn_func=native_mcq_pfn, hf_subset="")
+                 for sub, repo in subsets]
+
+
+class CustomNativeCompletionTask(LightevalTaskConfig):
+    def __init__(self, hf_repo, pfn_func, name, hf_subset=None):
+        super().__init__(
+            name=name,
+            prompt_function=native_completion_pfn,
+            suite=["community"],
+            hf_repo=hf_repo,
+            hf_subset=hf_subset or None, 
+            hf_avail_splits=["test"],
+            evaluation_splits=["test"],
+            metric=[Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm],
+            trust_dataset=True,
+            version=0,
+        )
+
+NATIVE_COMPLETION_TASKS = [CustomNativeCompletionTask(name=f"COMPLETION_{sub}", hf_repo=repo, pfn_func=native_completion_pfn, hf_subset="")
+                 for sub, repo in subsets]
 
 
 class CustomSynGENTask(LightevalTaskConfig):
@@ -310,4 +467,7 @@ SYN_TASKS = [
 TASKS_TABLE = (
     SYN_TASKS
     + SYN_GEN_TASKS
+    + NATIVE_MCQ_TASKS
+    + NATIVE_COMPLETION_TASKS
 )
+
