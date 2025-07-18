@@ -45,6 +45,10 @@ We evaluated over **40 LLMs**, including Arabic-centric, multilingual, and bilin
 - Arabic code generation performance strongly **correlates** with English code generation (r ≈ 0.97).
 - **Robustness tests** (e.g., distractor perturbation) revealed instruct-tuned models are more resilient than base models.
 
+<p align="center">
+  <img src="results.png"  alt="Key results"/>
+</p>
+
 You can explore full results and correlation analyses in the [paper](https://arxiv.org/abs/2507.xxxxx) and via our scripts.
 
 ---
