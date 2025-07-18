@@ -4,7 +4,7 @@ chat_template: true
 precision: bfloat16
 backend: lighteval
 
-tasks: synthetic_tasks.txt
+tasks: tasks/synthetic_tasks.txt
 custom_tasks: frameworks/lighteval/community_tasks/ara_math_eval.py
 OUTPUT_DIR: "results"
 
