@@ -38,33 +38,25 @@ from lighteval.tasks.lighteval_task import LightevalTaskConfig
 from lighteval.tasks.requests import Doc
 
 
-# fmt: off
-LETTER_INDICES_AR = ["أ", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ي", "ك", "ل", "م", "ن", "س", "ع", "ف", "ص", "ق", "ر", "ش", "ت", "ث", "خ", "ذ", "ض", "ظ", "غ"]
-# fmt: on
 
-# ArabicMMLU
-# fmt: off
-ILM_SUBSETS = [
+LETTER_INDICES_AR = ["أ", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ي", "ك", "ل", "م", "ن", "س", "ع", "ف", "ص", "ق", "ر", "ش", "ت", "ث", "خ", "ذ", "ض", "ظ", "غ"]
+
+SYN_GEN_SUBSETS = [
     "math","biology","physics","chemistry","general_science"
 ]
-# fmt: on
 
 
-def ilm_pfn(line, task_name: str = None):
+
+def syn_gen_pfn(line, task_name: str = None):
     instruction = "السؤال التالي هو سؤال متعدد الإختيارات. اختر الإجابة الصحيحة:\n\n"
-
-
-    # 1) Extract the raw choices string
     raw = line["choices"]
     if isinstance(raw, list):
         raw = raw[0]
     elif not isinstance(raw, str):
         raise ValueError(f"Invalid choices type: {type(raw)}")
 
-    # 2) Decide whether to split by Arabic labels or by commas
     labels = ["أ)", "ب)", "ج)", "د)"]
     if all(lbl in raw for lbl in labels):
-        # --- Label-based splitting (allow multiple occurrences) ---
         positions_and_labels = []
         for lbl in labels:
             idx = raw.find(lbl)  # only the first occurrence
@@ -72,9 +64,7 @@ def ilm_pfn(line, task_name: str = None):
                 raise ValueError(f"Missing label {lbl} in: {raw!r}")
             positions_and_labels.append((idx, lbl))
 
-        # Sort by the index so we know textual order
         positions_and_labels.sort(key=lambda pair: pair[0])
-        # Extract each chunk between consecutive label‐indices
         label_to_text = {}
         for i, (pos, lbl) in enumerate(positions_and_labels):
             start = pos + len(lbl)
@@ -82,7 +72,6 @@ def ilm_pfn(line, task_name: str = None):
             chunk = raw[start:end].strip()
             label_to_text[lbl] = chunk
 
-        # Reassemble in the canonical order ["أ)", "ب)", "ج)", "د)"]
         choices = [
             label_to_text["أ)"],
             label_to_text["ب)"],
@@ -90,12 +79,10 @@ def ilm_pfn(line, task_name: str = None):
             label_to_text["د)"],
         ]
 
-        # Sanity check
         if any(not c for c in choices):
             raise ValueError(f"After slicing labels, got empty choice(s): {choices!r}")
 
     elif "," in raw:
-        # --- Comma-based splitting (unchanged) ---
         parts = []
         buffer = ""
         depth = 0
@@ -130,7 +117,6 @@ def ilm_pfn(line, task_name: str = None):
     else:
         raise ValueError(f"Cannot determine how to split choices: {raw!r}")
 
-    # 3) Map between Latin ⇄ Arabic labels, find gold index
     latin_to_arabic = {"A": "أ", "B": "ب", "C": "ج", "D": "د"}
     arabic_to_latin = {v: k for k, v in latin_to_arabic.items()}
     valid_keys_latin = ["A", "B", "C", "D"]
@@ -143,21 +129,15 @@ def ilm_pfn(line, task_name: str = None):
     answer_index = valid_keys_latin.index(self_answer_latin)
 
     choices = [c[1:] for c in choices]
-    # 4) Build the query text
+
     new_choices = []
     for arab_label, choice_text in zip(labels, choices):
         new_choices.append(f"{arab_label[0]}. {choice_text}\n")
 
-    # if "التالي" not in line['question'] and  "التالية" not in line['question']:
-    # question = line['question'] + "\n"+ "".join(new_choices)
-    # gold_answer = new_choices[answer_index].strip()
-    # else:
     question = line['question']
     gold_answer = choices[answer_index].strip()
     query = f"{instruction}{question}\n"
     query += "الإجابة:"
-    # print('query:', query)
-    # print('gold_answer:', gold_answer)
 
 
     return Doc(
@@ -170,7 +150,7 @@ def ilm_pfn(line, task_name: str = None):
 
 
 
-class CustomArabicMMLUTask(LightevalTaskConfig):
+class CustomSynGENTask(LightevalTaskConfig):
     def __init__(
         self,
         name,
@@ -179,12 +159,12 @@ class CustomArabicMMLUTask(LightevalTaskConfig):
         super().__init__(
             name=name,
             hf_subset=hf_subset,
-            prompt_function=ilm_pfn,
-            hf_repo="falcon-arabic/ilm",
-            metrics=[Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm],
-            hf_avail_splits=["train"],
-            evaluation_splits=["train"],
-            few_shots_split=["dev"],
+            prompt_function=syn_gen_pfn,
+            hf_repo="tiiuae/SyntheticQA",
+            metric=[Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm],
+            hf_avail_splits=["test"],
+            evaluation_splits=["test"],
+            few_shots_split=["test"],
             few_shots_select="sequential",
             suite=["community"],
             generation_size=-1,
@@ -194,15 +174,13 @@ class CustomArabicMMLUTask(LightevalTaskConfig):
         )
 
 
-ILM_TASKS = [
-    CustomArabicMMLUTask(name=f"ilm:{subset}", hf_subset=subset) for subset in ILM_SUBSETS
+SYN_GEN_TASKS = [
+    CustomSynGENTask(name=f"ilm:{subset}", hf_subset=subset) for subset in SYN_GEN_SUBSETS
 ]
 
 
 
 
 TASKS_TABLE = (
-    ILM_TASKS
-    # + ARABIC_MMLU_HT_TASKS
-    # + ARABIC_MMLU_MT_TASKS
+    SYN_GEN_TASKS
 )
