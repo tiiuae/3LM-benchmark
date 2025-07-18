@@ -4,7 +4,7 @@
 Welcome to the official repository of **3LM** a comprehensive benchmark suite tailored to evaluate Arabic Large Language Models (LLMs) across scientific and technical domains, including **STEM** (Science, Technology, Engineering, and Mathematics) and **code generation**.
 
 🔗 [Paper on arXiv](https://arxiv.org/abs/2507.xxxxx)  
-📊 [Leaderboard & Evaluation Tools](https://github.com/tiiuae/3LM-benchmark)
+📊 [Evaluation Tools](https://github.com/tiiuae/3LM-benchmark)
 
 ---
 
