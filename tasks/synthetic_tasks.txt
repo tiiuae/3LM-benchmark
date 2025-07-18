@@ -1,5 +1,5 @@
-community|ilm:Math|0|0
-community|ilm:Biology|0|0
-community|ilm:General_Science|0|0
-community|ilm:Chemistry|0|0
-community|ilm:Physics|0|0
+community|syn:Math|0|0
+community|syn:Biology|0|0
+community|syn:General_Science|0|0
+community|syn:Chemistry|0|0
+community|syn:Physics|0|0

@@ -1,7 +1,8 @@
 ##lighteval
-model: Qwen/Qwen2.5-1.5B
+model: Qwen/Qwen2.5-0.5B-Instruct
 chat_template: true
 precision: bfloat16
+backend: lighteval
 
 tasks: synthetic_tasks.txt
 custom_tasks: frameworks/lighteval/community_tasks/ara_math_eval.py
