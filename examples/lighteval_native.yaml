@@ -1,7 +1,7 @@
 ##lighteval
-model: Qwen/Qwen2.5-0.5B-Instruct
+model: google/gemma-3-4b-it #Qwen/Qwen2.5-0.5B-Instruct
 chat_template: true
-precision: float32
+precision: bfloat16
 backend: lighteval
 
 tasks: tasks/native_tasks.txt

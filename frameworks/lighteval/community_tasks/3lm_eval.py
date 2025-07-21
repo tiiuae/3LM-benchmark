@@ -134,7 +134,7 @@ def syn_pfn(line, task_name: str = None):
 
     query = f"{instruction}{line['question']}\n"
     for arab_label, choice_text in zip(valid_keys_arabic, choices):
-        query += f"{arab_label}.{choice_text[1:]}\n"
+        query += f"{arab_label}. {choice_text[1:]}\n"
     query += "الإجابة:"
     
     return Doc(
@@ -430,7 +430,7 @@ class CustomSynGENTask(LightevalTaskConfig):
 
 
 SYN_GEN_TASKS = [
-    CustomSynGENTask(name=f"syn_gen:{subset}", hf_subset=subset) for subset in SYN_SUBSETS
+    CustomSynGENTask(name=f"COMPLETION_Synthetic:{subset}", hf_subset=subset) for subset in SYN_SUBSETS
 ]
 
 
@@ -460,7 +460,7 @@ class CustomSyntheticTask(LightevalTaskConfig):
 
 
 SYN_TASKS = [
-    CustomSyntheticTask(name=f"syn_mcq:{subset}", hf_subset=subset) for subset in SYN_SUBSETS
+    CustomSyntheticTask(name=f"MCQ_Synthetic:{subset}", hf_subset=subset) for subset in SYN_SUBSETS
 ]
 
 
@@ -471,3 +471,136 @@ TASKS_TABLE = (
     + NATIVE_COMPLETION_TASKS
 )
 
+# import random
+# import re
+# import ast
+# from functools import partial
+# from typing import Any, Dict, List, Optional, Union
+
+# from lighteval.metrics.metrics import Metrics
+# from lighteval.tasks.lighteval_task import LightevalTaskConfig
+# from lighteval.tasks.requests import Doc
+
+
+# LETTER_INDICES_AR = ["أ", "ب", "ج", "د"]
+# LATIN_TO_ARABIC = {"A": "أ", "B": "ب", "C": "ج", "D": "د"}
+# ARABIC_TO_LATIN = {v: k for k, v in LATIN_TO_ARABIC.items()}
+
+
+# SYN_SUBSETS = ["Math", "Biology", "Physics", "Chemistry", "General_Science"]
+# subsets = [("NativeQA", "tiiuae/NativeQA"), ("NativeQA-RDP", "tiiuae/NativeQA-RDP")]
+
+
+# def parse_arabic_choices(raw: str) -> List[str]:
+#     labels = [f"{l})" for l in LETTER_INDICES_AR[:4]]
+#     if all(lbl in raw for lbl in labels):
+#         positions = [(raw.find(lbl), lbl) for lbl in labels]
+#         positions.sort()
+#         return [raw[pos + len(lbl): positions[i+1][0] if i < 3 else None].strip() for i, (pos, lbl) in enumerate(positions)]
+#     elif "," in raw:
+#         parts, buffer, depth = [], "", 0
+#         for ch in raw:
+#             if ch == "(": depth += 1
+#             elif ch == ")": depth = max(depth - 1, 0)
+#             if ch == "," and depth == 0:
+#                 parts.append(buffer.strip()); buffer = ""
+#             else:
+#                 buffer += ch
+#         parts.append(buffer.strip())
+#         if len(parts) != 4:
+#             raise ValueError(f"Expected 4 parts, got {len(parts)}")
+#         return [p[2:].strip() for p in parts]
+#     raise ValueError("Invalid choice format")
+
+# def syn_doc_parser(line, task_name=None, include_labels=True):
+#     instruction = "السؤال التالي هو سؤال متعدد الإختيارات. اختر الإجابة الصحيحة:\n\n"
+#     choices = parse_arabic_choices(line["choices"] if not isinstance(line["choices"], list) else line["choices"][0])
+#     self_answer_latin = ARABIC_TO_LATIN.get(line["self_answer"].strip())
+#     if self_answer_latin not in LATIN_TO_ARABIC:
+#         raise ValueError(f"Invalid answer: {line['self_answer']!r}")
+#     answer_index = ["A", "B", "C", "D"].index(self_answer_latin)
+
+#     query = f"{instruction}{line['question']}\n"
+#     formatted_choices = choices if not include_labels else [f"{LETTER_INDICES_AR[i]}. {c[1:].strip()}" for i, c in enumerate(choices)]
+#     if include_labels:
+#         query += "\n".join(formatted_choices) + "\n"
+#     query += "الإجابة:"
+
+#     return Doc(
+#         task_name=task_name,
+#         query=query,
+#         choices=LETTER_INDICES_AR if include_labels else [c[1:].strip() for c in choices],
+#         gold_index=answer_index,
+#         instruction=instruction,
+#     )
+
+# syn_pfn = partial(syn_doc_parser, include_labels=True)
+# syn_gen_pfn = partial(syn_doc_parser, include_labels=False)
+
+# def parse_native_doc(line, task_name=None, verbose=False, include_choices=True):
+#     instruction = "السؤال التالي هو سؤال متعدد الخيارات. اختر الإجابة الصحيحة:\n\n"
+#     raw_choices = ast.literal_eval(line["choices"]) if isinstance(line["choices"], str) else line["choices"]
+#     correct_label = line["correct_choice"].strip()
+#     question_text = line["question_text"].strip()
+#     labels, texts = [], []
+#     for choice in raw_choices:
+#         match = re.match(r"^\((.)\)\s*(.*)", choice)
+#         if match:
+#             labels.append(match.group(1).strip())
+#             texts.append(match.group(2).strip())
+
+#     if correct_label not in labels:
+#         raise ValueError(f"Correct label {correct_label} not found")
+#     answer_index = labels.index(correct_label)
+
+#     query = f"{instruction}{question_text}\n"
+#     if include_choices:
+#         query += "".join([f"{l}. {t}\n" for l, t in zip(labels, texts)])
+#     query += "الإجابة:"
+
+#     return Doc(
+#         task_name=task_name,
+#         query=query,
+#         choices=labels if include_choices else texts,
+#         gold_index=answer_index,
+#         instruction=instruction,
+#     )
+
+# native_mcq_pfn = partial(parse_native_doc, include_choices=True)
+# native_completion_pfn = partial(parse_native_doc, include_choices=False)
+
+# def create_task_class(name, hf_repo, prompt_function, metrics, hf_subset=None):
+#     return LightevalTaskConfig(
+#         name=name,
+#         prompt_function=prompt_function,
+#         suite=["community"],
+#         hf_repo=hf_repo,
+#         hf_subset=hf_subset or None,
+#         hf_avail_splits=["test"],
+#         evaluation_splits=["test"],
+#         metric=metrics,
+#         trust_dataset=True,
+#         version=0,
+#     )
+
+# NATIVE_MCQ_TASKS = [
+#     create_task_class(f"MCQ_{sub}", repo, native_mcq_pfn, [Metrics.loglikelihood_acc_norm])
+#     for sub, repo in subsets
+# ]
+
+# NATIVE_COMPLETION_TASKS = [
+#     create_task_class(f"COMPLETION_{sub}", repo, native_completion_pfn, [Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm])
+#     for sub, repo in subsets
+# ]
+
+# SYN_TASKS = [
+#     create_task_class(f"MCQ_Synthetic:{subset}", "tiiuae/SyntheticQA", syn_pfn, [Metrics.loglikelihood_acc_norm], hf_subset=subset)
+#     for subset in SYN_SUBSETS
+# ]
+
+# SYN_GEN_TASKS = [
+#     create_task_class(f"COMPLETION_Synthetic:{subset}", "tiiuae/SyntheticQA", syn_gen_pfn, [Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm], hf_subset=subset)
+#     for subset in SYN_SUBSETS
+# ]
+
+# TASKS_TABLE = SYN_TASKS + SYN_GEN_TASKS + NATIVE_MCQ_TASKS + NATIVE_COMPLETION_TASKS

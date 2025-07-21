@@ -1,6 +1,6 @@
 ##lighteval
-model: Qwen/Qwen2.5-0.5B-Instruct
-chat_template: true
+model: google/gemma-3-4b-pt
+chat_template: false
 precision: bfloat16
 backend: lighteval
 
