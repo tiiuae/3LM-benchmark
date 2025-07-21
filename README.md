@@ -108,7 +108,7 @@ If you use 3LM in your research, please cite our paper:
 ```bibtex
 @article{boussaha2025threeLM,
   title={3LM: Bridging Arabic, STEM, and Code through Benchmarking},
-  author={Boussaha, Basma El Amel and AlQadi, Leen and Farooq, Mugariya and Alsuwaidi, Shaikha and Campesan, Giulia and Alyafeai, Mohammed and Alzubaidi, Ahmed and Hacid, Hakim},
+  author={Boussaha, Basma El Amel and AlQadi, Leen and Farooq, Mugariya and Alsuwaidi, Shaikha and Campesan, Giulia and Alzubaidi, Ahmed and Alyafeai, Mohammed and Hacid, Hakim},
   journal={arXiv preprint arXiv:2507.xxxxx},
   year={2025}
 }
