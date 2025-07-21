@@ -72,9 +72,13 @@ All evaluation is built on:
 - `lighteval` for STEM QA
 - `evalplus` for code pass@1 metrics
 
-📁 The dataset files are in `data/` and include:
-- `native_stem.json`
-- `synthetic_stem.json`
+📁 The datasets are available on HuggingFace:
+- SyntheticQA: https://huggingface.co/datasets/tiiuae/SyntheticQA
+- NativeQA: https://huggingface.co/datasets/tiiuae/NativeQA
+- NativeQA-RDP: https://huggingface.co/datasets/tiiuae/NativeQA-RDP
+- Evalplus-Arabic: https://huggingface.co/datasets/tiiuae/evalplus-arabic
+
+📁 Code datasets are in `data/` and include:
 - `humaneval-ar.json`
 - `mbpp-ar.json`
 
