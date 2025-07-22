@@ -101,6 +101,11 @@ Ensure you have access to models via HuggingFace or your own inference setup.
 
 ---
 
+## 🪪 Licence
+
+[Falcon LLM Licence](https://falconllm.tii.ae/falcon-terms-and-conditions.html)
+
+
 ## 📝 Citation
 
 If you use 3LM in your research, please cite our paper:
