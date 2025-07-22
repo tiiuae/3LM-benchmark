@@ -48,6 +48,9 @@ def accelerate(  # noqa C901
     use_chat_template: Annotated[
         bool, Option(help="Use chat template for evaluation.", rich_help_panel=HELP_PANEL_NAME_4)
     ] = False,
+    disable_thinking: Annotated[
+        bool, Option(help="disable thinking", rich_help_panel=HELP_PANEL_NAME_4)
+    ] = False,
     vision_model: Annotated[
         bool, Option(help="Use vision model for evaluation.", rich_help_panel=HELP_PANEL_NAME_4)
     ] = False,
@@ -138,6 +141,7 @@ def accelerate(  # noqa C901
         num_fewshot_seeds=num_fewshot_seeds,
         max_samples=max_samples,
         use_chat_template=use_chat_template,
+        disable_thinking=disable_thinking,
         system_prompt=system_prompt,
         load_responses_from_details_date_id=load_responses_from_details_date_id,
     )

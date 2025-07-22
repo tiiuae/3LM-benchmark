@@ -24,7 +24,8 @@ def lighteval(config):
     model_parallel = ",model_parallel=False " if config['MP'] == 1 else ",model_parallel=True "
     max_samples = f"--max-samples {config.get('max_samples')}" if config.get('max_samples') else ""
     save_details = f"--save-details " if config.get('save_details') else ""
-    template = "--use-chat-template " if config['chat_template'] else ""
+    template = f"--use-chat-template " if config['chat_template'] else ""
+    disable_thinking = f"--disable-thinking " if config['disable_thinking'] else ""
     
     
     command = (
@@ -34,6 +35,7 @@ def lighteval(config):
         f"--output-dir {OUTPUT_DIR} "
         f"--custom-tasks {CUSTOM_TASKS} "
         f"{template} "
+        f"{disable_thinking} "
         f"{save_details} "
         f"{max_samples} "
     )

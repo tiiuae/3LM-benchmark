@@ -590,6 +590,7 @@ def create_requests_from_tasks(  # noqa: C901
     max_samples: int | None,
     evaluation_tracker: "EvaluationTracker",
     use_chat_template: bool,
+    disable_thinking: bool,
     system_prompt: str | None,
     cot_prompt: str | None,
 ) -> Tuple[dict[RequestType, list[Request]], dict[SampleUid, Doc]]:
@@ -657,6 +658,7 @@ def create_requests_from_tasks(  # noqa: C901
                         sampler=rnd,
                         truncate_few_shots=truncate_few_shots,
                         use_chat_template=use_chat_template,
+                        disable_thinking=disable_thinking,
                         system_prompt=system_prompt,
                         cot_prompt=cot_prompt,
                     )

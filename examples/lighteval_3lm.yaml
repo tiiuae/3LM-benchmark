@@ -1,8 +1,9 @@
 backend: lighteval
 ##lighteval
-model: Qwen/Qwen2.5-1.5B
+model: Qwen/Qwen3-4B
 chat_template: true
 precision: bfloat16
+disable_thinking: false ## if set to true, the model will not disable thinking (needed for qwen3 models)
 
 tasks: 3lm_tasks.txt
 custom_tasks: benchmarks/lighteval/community_tasks/3lm_evals.py
