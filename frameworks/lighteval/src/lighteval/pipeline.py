@@ -104,6 +104,7 @@ class PipelineParameters:
     num_fewshot_seeds: int = 1
     max_samples: int | None = None
     use_chat_template: bool = False
+    disable_thinking: bool = False
     system_prompt: str | None = None
     cot_prompt: str | None = None
     load_responses_from_details_date_id: str | None = None
@@ -231,6 +232,7 @@ class Pipeline:
                 max_samples=self.pipeline_parameters.max_samples,
                 evaluation_tracker=self.evaluation_tracker,
                 use_chat_template=self.pipeline_parameters.use_chat_template,
+                disable_thinking=self.pipeline_parameters.disable_thinking,
                 system_prompt=self.pipeline_parameters.system_prompt,
                 cot_prompt=self.pipeline_parameters.cot_prompt,
             )

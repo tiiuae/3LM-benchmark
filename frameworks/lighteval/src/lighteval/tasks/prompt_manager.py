@@ -106,6 +106,7 @@ class PromptManager:
         sampler: Optional[random.Random] = None,
         truncate_few_shots: bool = False,
         use_chat_template=False,
+        disable_thinking=False,
         system_prompt: str = None,
         cot_prompt: str = None,
     ) -> Doc:
@@ -121,6 +122,7 @@ class PromptManager:
                 truncate_few_shots=truncate_few_shots,
                 sampler=sampler,
                 use_chat_template=use_chat_template,
+                disable_thinking=disable_thinking,
                 system_prompt=system_prompt,
                 cot_prompt=cot_prompt,
             )
@@ -176,6 +178,7 @@ class PromptManager:
         sampler: Optional[random.Random] = None,
         truncate_few_shots: bool = False,
         use_chat_template=False,
+        disable_thinking=False,
         system_prompt: str = None,
         cot_prompt: str = None,
     ):
@@ -247,10 +250,13 @@ class PromptManager:
 
         if type(self.model) in [LiteLLMClient, InferenceProvidersClient]:
             return output, num_effective_fewshots
-
         elif use_chat_template:
+            kwargs = {}
+            if disable_thinking:
+                kwargs["enable_thinking"] = False            
+                
             return self.model.tokenizer.apply_chat_template(
-                output, tokenize=False, add_generation_prompt=True
+                output, tokenize=False, add_generation_prompt=True, **kwargs
             ), num_effective_fewshots
 
         return output, num_effective_fewshots
