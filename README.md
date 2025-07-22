@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://github.com/tiiuae/3LM-benchmark">GitHub</a> ·
   <a href="https://huggingface.co/collections/tiiuae/3lm-arabic-benchmark-687de9629072871e702d35e1">Datasets</a> ·
-  <a href="https://arxiv.org/abs/2507.xxxxx">Paper</a>
+  <a href="https://arxiv.org/pdf/2507.15850">Paper</a>
 </p>
 
 ---
@@ -109,7 +109,7 @@ If you use 3LM in your research, please cite our paper:
 @article{boussaha2025threeLM,
   title={3LM: Bridging Arabic, STEM, and Code through Benchmarking},
   author={Boussaha, Basma El Amel and AlQadi, Leen and Farooq, Mugariya and Alsuwaidi, Shaikha and Campesan, Giulia and Alzubaidi, Ahmed and Alyafeai, Mohammed and Hacid, Hakim},
-  journal={arXiv preprint arXiv:2507.xxxxx},
+  journal={arXiv preprint arXiv:2507.15850},
   year={2025}
 }
 ```
