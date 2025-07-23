@@ -42,6 +42,36 @@ def lighteval(config):
     
     return command
 
+def lighteval_vllm(config):
+    """
+        Construct the lighteval command generic to all tasks/custom_tasks where vllm is deployed
+    """
+    model = config["model"] 
+    TASKS  = config["tasks"]
+    CUSTOM_TASKS  = config["custom_tasks"] 
+    OUTPUT_DIR  = config["OUTPUT_DIR"]
+        
+    model_args = f"model_name={model},dtype={config['precision']},trust_remote_code={config.get('trust_remote_code', False)},tensor_parallel_size={config.get('tp', 1)},gpu_memory_utilization={config.get('gpu_memory_utilization', 0.9)}"
+        
+    max_samples = f"--max-samples {config.get('max_samples')}" if config.get('max_samples') else ""
+    save_details = f"--save-details " if config.get('save_details') else ""
+    template = f"--use-chat-template " if config['chat_template'] else ""
+    disable_thinking = f"--disable-thinking " if config['disable_thinking'] else ""
+
+    command = (
+        f"lighteval vllm "
+        f"{model_args} "
+        f"'{TASKS}' "
+        f"--output-dir {OUTPUT_DIR} "
+        f"--custom-tasks {CUSTOM_TASKS} "
+        f"{template} "
+        f"{disable_thinking} "
+        f"{save_details} "
+        f"{max_samples} "
+    )
+    
+    return command
+
 
 def evalplus_arabic(config):
 
@@ -79,6 +109,7 @@ def eval_local(command):
 
 eval_mapper = {
     "lighteval": lighteval,
+    "lighteval_vllm": lighteval_vllm,
     "evalplus_arabic": evalplus_arabic,
 }
 
@@ -89,7 +120,6 @@ def main(args):
     # eval_func = eval_mapper.get(args.eval)
     backend = config["backend"]
     eval_func = eval_mapper.get(backend)
-    
     
     if eval_func is None :
         command = eval_mapper(config)

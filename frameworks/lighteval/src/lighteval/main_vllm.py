@@ -44,6 +44,9 @@ def vllm(
     use_chat_template: Annotated[
         bool, Option(help="Use chat template for evaluation.", rich_help_panel=HELP_PANEL_NAME_4)
     ] = False,
+    disable_thinking: Annotated[
+        bool, Option(help="disable thinking for qwen3 models", rich_help_panel=HELP_PANEL_NAME_4)
+    ] = False,
     system_prompt: Annotated[
         Optional[str], Option(help="Use system prompt for evaluation.", rich_help_panel=HELP_PANEL_NAME_4)
     ] = None,
@@ -131,6 +134,7 @@ def vllm(
         num_fewshot_seeds=num_fewshot_seeds,
         max_samples=max_samples,
         use_chat_template=use_chat_template,
+        disable_thinking=disable_thinking,
         system_prompt=system_prompt,
         cot_prompt=cot_prompt,
         load_responses_from_details_date_id=load_responses_from_details_date_id,
