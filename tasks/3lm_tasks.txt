@@ -1,1 +1,5 @@
+community|COMPLETION_Synthetic:Biology|0|0
 community|COMPLETION_Synthetic:Math|0|0
+community|COMPLETION_Synthetic:General_Science|0|0
+community|COMPLETION_Synthetic:Chemistry|0|0
+community|COMPLETION_Synthetic:Physics|0|0

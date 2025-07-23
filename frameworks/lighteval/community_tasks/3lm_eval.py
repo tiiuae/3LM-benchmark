@@ -140,7 +140,7 @@ def syn_pfn(line, task_name: str = None):
         clean_choice = choice_text.strip(" []'\"\n")
         query += f"{arab_label}.{clean_choice[1:]}\n"
     query += "الإجابة:"
-    print(query)
+    # print(query)
     return Doc(
         task_name=task_name,
         query=query,
@@ -231,26 +231,27 @@ def syn_gen_pfn(line, task_name: str = None):
     answer_index = valid_keys_latin.index(self_answer_latin)
 
     choices = [c[1:] for c in choices]
-    print("these are the choices", choices)
+    # print("these are the choices", choices)
     new_choices = []
     for arab_label, choice_text in zip(labels, choices):
-        clean_choice = choice_text.strip(" []'\"\n")
-        new_choices.append(f"{arab_label[0]}. {clean_choice}\n")
-    print("these are the new choices", new_choices)
+        clean_choice = choice_text.strip(" []'\"\n").replace("'", "")  # Ensure commas are consistent
+        new_choices.append(clean_choice)
+    # print("these are the new choices", new_choices)
     question = line['question']
-    print("this is the question", question)
-    gold_answer = choices[answer_index].strip(" []'\"\n")
+    # print("this is the question", question)
+    gold_answer = choices[answer_index].strip(" []'\"\n").replace("'", "")
     print("this is the gold answer", gold_answer)
     query = f"{instruction}{question}\n"
     query += "الإجابة:"
-    # print(query)
+    print(query)
+    print("new_choices" ,new_choices)
 
 
     return Doc(
         task_name=task_name,
         query=query,
         instruction=instruction,
-        choices=choices, # we give the text of all the choices without the letter
+        choices=new_choices, # we give the text of all the choices without the letter
         gold_index=answer_index  # Index of the correct answer in choices
     )
 
