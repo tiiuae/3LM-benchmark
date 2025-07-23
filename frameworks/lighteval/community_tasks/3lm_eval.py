@@ -44,6 +44,9 @@ LETTER_INDICES_AR = ["أ", "ب", "ج", "د", "هـ", "و", "ز", "ح", "ط", "ي
 SYN_SUBSETS = [
     "Math","Biology","Physics","Chemistry","General_Science"
 ]
+# SYN_SUBSETS = [
+#     "math","biology","physics","chemistry","general_Science"
+# ]
 
 
 def syn_pfn(line, task_name: str = None):
@@ -113,10 +116,10 @@ def syn_pfn(line, task_name: str = None):
                 raise ValueError(f"Missing or malformed label at chunk {idx+1}: {segment!r}")
             stripped = segment[2:].strip()
             choices.append(stripped)
-
+            print("these are choices", choices)
         if any(not c for c in choices):
             raise ValueError(f"After stripping labels, got empty choice(s): {choices!r}")
-
+        
     else:
         raise ValueError(f"Cannot determine how to split choices: {raw!r}")
 
@@ -134,9 +137,10 @@ def syn_pfn(line, task_name: str = None):
 
     query = f"{instruction}{line['question']}\n"
     for arab_label, choice_text in zip(valid_keys_arabic, choices):
-        query += f"{arab_label}. {choice_text[1:]}\n"
+        clean_choice = choice_text.strip(" []'\"\n")
+        query += f"{arab_label}.{clean_choice[1:]}\n"
     query += "الإجابة:"
-    
+    print(query)
     return Doc(
         task_name=task_name,
         query=query,
@@ -227,15 +231,19 @@ def syn_gen_pfn(line, task_name: str = None):
     answer_index = valid_keys_latin.index(self_answer_latin)
 
     choices = [c[1:] for c in choices]
-
+    print("these are the choices", choices)
     new_choices = []
     for arab_label, choice_text in zip(labels, choices):
-        new_choices.append(f"{arab_label[0]}. {choice_text}\n")
-
+        clean_choice = choice_text.strip(" []'\"\n")
+        new_choices.append(f"{arab_label[0]}. {clean_choice}\n")
+    print("these are the new choices", new_choices)
     question = line['question']
-    gold_answer = choices[answer_index].strip()
+    print("this is the question", question)
+    gold_answer = choices[answer_index].strip(" []'\"\n")
+    print("this is the gold answer", gold_answer)
     query = f"{instruction}{question}\n"
     query += "الإجابة:"
+    # print(query)
 
 
     return Doc(
@@ -416,6 +424,7 @@ class CustomSynGENTask(LightevalTaskConfig):
             hf_subset=hf_subset,
             prompt_function=syn_gen_pfn,
             hf_repo="tiiuae/SyntheticQA",
+            # hf_repo="falcon-arabic/ilm",
             metric=[Metrics.loglikelihood_acc, Metrics.loglikelihood_acc_norm],
             hf_avail_splits=["test"],
             evaluation_splits=["test"],
@@ -446,6 +455,7 @@ class CustomSyntheticTask(LightevalTaskConfig):
             hf_subset=hf_subset,
             prompt_function=syn_pfn,
             hf_repo="tiiuae/SyntheticQA",
+            # hf_repo="falcon-arabic/ilm",
             metric=[Metrics.loglikelihood_acc_norm],
             hf_avail_splits=["test"],
             evaluation_splits=["test"],

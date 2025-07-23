@@ -33,6 +33,7 @@ def lighteval(config):
         f"--custom-tasks {CUSTOM_TASKS} "
         f"{save_details} "
         f"{max_samples} "
+        f"--use-chat-template "
     )
     return command
 
