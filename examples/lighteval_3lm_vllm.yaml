@@ -1,0 +1,14 @@
+backend: lighteval_vllm
+##lighteval
+model: Qwen/Qwen3-4B
+chat_template: true
+precision: bfloat16
+disable_thinking: false ## if set to true, the model will not disable thinking (needed for qwen3 models)
+
+tasks: 3lm_tasks.txt
+custom_tasks: benchmarks/lighteval/community_tasks/3lm_evals.py
+OUTPUT_DIR: "results"   
+
+## vllm
+tp: 8  ## specify tensor parallelism required for vllm
+gpu_memory_utilization: 0.9  ## specify gpu_memory_utilization required for vllm
