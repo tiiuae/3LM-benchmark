@@ -1,11 +1,11 @@
 ##lighteval
-model: google/gemma-3-4b-it
-chat_template: true
+model: google/gemma-3-4b-pt
+chat_template: false
 precision: auto
 backend: lighteval
 trust_remote_code: true
 
-tasks: tasks/3lm_tasks.txt
+tasks: tasks/synthetic_tasks.txt
 custom_tasks: frameworks/lighteval/community_tasks/3lm_eval.py
 OUTPUT_DIR: "results"
 # max_samples: 20

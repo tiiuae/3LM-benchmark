@@ -1,7 +1,7 @@
 ##lighteval
-model: google/gemma-3-4b-it #Qwen/Qwen2.5-0.5B-Instruct
-chat_template: true
-precision: bfloat16
+model: google/gemma-3-4b-pt #Qwen/Qwen2.5-0.5B-Instruct
+chat_template: false
+precision: auto
 backend: lighteval
 
 tasks: tasks/native_tasks.txt
@@ -9,5 +9,5 @@ custom_tasks: frameworks/lighteval/community_tasks/3lm_eval.py
 OUTPUT_DIR: "results"   
 # max_samples: 5
 ## accelerate
-DP: 1  ## specify data parallelism  (copies of the model to run in parallel)
+DP: 8  ## specify data parallelism  (copies of the model to run in parallel)
 MP: 1  ## how many gpus each copy of the model will be using
