@@ -1,4 +1,4 @@
-backend: lighteval
+backend: lighteval_vllm
 ##lighteval
 model: Qwen/Qwen3-4B
 chat_template: true
