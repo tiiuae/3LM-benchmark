@@ -1,0 +1,4 @@
+community|MCQ_NativeQA|0|0
+community|COMPLETION_NativeQA|0|0
+community|MCQ_NativeQA-RDP|0|0
+community|COMPLETION_NativeQA-RDP|0|0
