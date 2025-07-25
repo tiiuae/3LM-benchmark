@@ -13,17 +13,6 @@
 
 ---
 
-
-
-<!-- # 3LM Benchmark: Arabic Evaluation for STEM and Code 🧪💻📚
-
-Welcome to the official repository of **3LM** a comprehensive benchmark suite tailored to evaluate Arabic Large Language Models (LLMs) across scientific and technical domains, including **STEM** (Science, Technology, Engineering, and Mathematics) and **code generation**.
-
-🔗 [Paper on arXiv](https://arxiv.org/abs/2507.xxxxx)  
-📊 [Evaluation Tools](https://github.com/tiiuae/3LM-benchmark)
-
---- -->
-
 ## 🧠 What is 3LM?
 
 **3LM (علم)** is the **first Arabic-native benchmark** suite dedicated to **scientific reasoning and programming**. It contains three sub-benchmarks:
