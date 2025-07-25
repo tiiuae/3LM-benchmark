@@ -60,6 +60,10 @@ Clone the repo and install dependencies:
 git clone https://github.com/tiiuae/3LM-benchmark.git
 cd 3LM-benchmark
 pip install -r requirements.txt
+cd frameworks/evalplus-arabic
+pip install -r requirements.txt
+pip install -e .
+cd ../../
 ```
 
 Run evaluation on your model:
