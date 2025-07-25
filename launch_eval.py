@@ -4,8 +4,10 @@ import os, sys
 import yaml
 
 
-
 def lighteval(config):
+    return _lighteval_vllm(config) if config.get("engine") == "vllm" else _lighteval_accelerate(config) 
+
+def _lighteval_accelerate(config):
     """
         Construct the lighteval command generic to all tasks/custom_tasks
     """
@@ -42,7 +44,7 @@ def lighteval(config):
     
     return command
 
-def lighteval_vllm(config):
+def _lighteval_vllm(config):
     """
         Construct the lighteval command generic to all tasks/custom_tasks where vllm is deployed
     """
@@ -99,9 +101,7 @@ def evalplus_arabic(config):
 
     )
 
-
     return command
-
 
 
 def eval_local(command):       
@@ -109,7 +109,6 @@ def eval_local(command):
 
 eval_mapper = {
     "lighteval": lighteval,
-    "lighteval_vllm": lighteval_vllm,
     "evalplus_arabic": evalplus_arabic,
 }
 
@@ -128,7 +127,6 @@ def main(args):
 
     command = eval_func(config)    
     
-    print(command)
     eval_local(command)
 
 

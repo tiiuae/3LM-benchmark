@@ -53,20 +53,32 @@ You can explore full results and correlation analyses in the [paper](https://arx
 
 ---
 
-## 📦 How to Use the Benchmark
+<!-- ## 📦 How to Use the Benchmark -->
+## 📦 Evaluate Your Model
 
-Clone the repo and install dependencies:
+1. Clone the 3LM-benchmark
 ```bash
 git clone https://github.com/tiiuae/3LM-benchmark.git
-cd 3LM-benchmark
-pip install -r requirements.txt
+```
+2. Setup your conda environment and install required modules
+```bash
+conda create -n 3lm_eval python==3.11
+conda activate 3lm_eval
+pip install -e frameworks/lighteval  #add [vllm] if you intend to use vllm as backend
+pip install -e frameworks/evalplus-arabic 
+huggingface-cli login --token <HF-token> ## ignore if evaluated model is stored locally  
 ```
 
-Run evaluation on your model:
+3. Launch evaluation scripts
+
 ```bash
-python evaluate_stem.py --model_name <your-model-name>
-python evaluate_code.py --model_name <your-model-name>
+python launch_eval.py -c examples/lighteval_3lm.yaml ## synthetic + native
+python launch_eval.py -c examples/lighteval_native.yaml ## native
+python launch_eval.py -c examples/lighteval_synthetic.yaml ## synthetic
+python scripts/evaluate_code.py --model_name <your-model-name> ## code
 ```
+Modify the configs in the above paths, to specify model and other evaluation params (i.e chat_template, engine...)
+
 
 All evaluation is built on:
 - `lighteval` for STEM QA
@@ -81,23 +93,6 @@ All evaluation is built on:
 📁 Code datasets are in `data/` and include:
 - `humaneval-ar.json`
 - `mbpp-ar.json`
-
----
-
-## 🔁 Reproducing Results
-
-To replicate our paper results:
-```bash
-bash scripts/reproduce_all.sh
-```
-
-This will:
-- Run both MCQ and completion evaluations
-- Log per-domain and overall accuracy
-- Evaluate both base and instruct models
-- Output pass@1 scores for Arabic and English code
-
-Ensure you have access to models via HuggingFace or your own inference setup.
 
 ---
 

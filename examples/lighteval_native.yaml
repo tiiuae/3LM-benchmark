@@ -1,13 +1,20 @@
-##lighteval
-model: google/gemma-3-4b-pt #Qwen/Qwen2.5-0.5B-Instruct
-chat_template: false
-precision: auto
-backend: lighteval
+model: Qwen/Qwen2.5-7B-Instruct
+chat_template: True
+precision: bfloat16
+disable_thinking: false ## if set to true, the model will not disable thinking (needed for qwen3 models)
+OUTPUT_DIR: results
+engine: vllm  ## values: accelerate, vllm
 
+## accelerate (will be used if engine is set to accelerate)
+DP: 1  ## specify data parallelism  (copies of the model to run in parallel)
+MP: 1  ## how many gpus each copy of the model will be using
+
+## vllm (will be used if engine is set to vllm)
+tp: 4  ## specify tensor parallelism required for vllm
+gpu_memory_utilization: 0.9  ## specify gpu_memory_utilization required for vllm
+
+
+## keep below fixed
 tasks: tasks/native_tasks.txt
 custom_tasks: frameworks/lighteval/community_tasks/3lm_eval.py
-OUTPUT_DIR: "results"   
-# max_samples: 5
-## accelerate
-DP: 8  ## specify data parallelism  (copies of the model to run in parallel)
-MP: 1  ## how many gpus each copy of the model will be using
+backend: lighteval
