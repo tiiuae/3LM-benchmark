@@ -49,7 +49,7 @@ We evaluated over **40 LLMs**, including Arabic-centric, multilingual, and bilin
   <img src="results.png"  alt="Key results"/>
 </p>
 
-You can explore full results and correlation analyses in the [paper](https://arxiv.org/abs/2507.xxxxx) and via our scripts.
+You can explore full results and correlation analyses in the [paper](https://arxiv.org/abs/2507.15850) and via our scripts.
 
 ---
 
