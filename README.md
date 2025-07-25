@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" width="120" alt="3LM Logo"/>
+  <img src="assets/logo.png" width="120" alt="3LM Logo"/>
 </p>
 
 <h1 align="center"><strong>3LM Benchmark</strong></h1>
@@ -12,17 +12,6 @@
 </p>
 
 ---
-
-
-
-<!-- # 3LM Benchmark: Arabic Evaluation for STEM and Code 🧪💻📚
-
-Welcome to the official repository of **3LM** a comprehensive benchmark suite tailored to evaluate Arabic Large Language Models (LLMs) across scientific and technical domains, including **STEM** (Science, Technology, Engineering, and Mathematics) and **code generation**.
-
-🔗 [Paper on arXiv](https://arxiv.org/abs/2507.xxxxx)  
-📊 [Evaluation Tools](https://github.com/tiiuae/3LM-benchmark)
-
---- -->
 
 ## 🧠 What is 3LM?
 
@@ -46,10 +35,10 @@ We evaluated over **40 LLMs**, including Arabic-centric, multilingual, and bilin
 - **Robustness tests** (e.g., distractor perturbation) revealed instruct-tuned models are more resilient than base models.
 
 <p align="center">
-  <img src="results.png"  alt="Key results"/>
+  <img src="assets/results.png"  alt="Key results"/>
 </p>
 
-You can explore full results and correlation analyses in the [paper](https://arxiv.org/abs/2507.xxxxx) and via our scripts.
+You can explore full results and correlation analyses in the [paper](https://arxiv.org/abs/2507.15850) and via our scripts.
 
 ---
 
