@@ -64,10 +64,9 @@ huggingface-cli login --token <HF-token> ## ignore if evaluated model is stored 
 python launch_eval.py -c examples/lighteval_3lm.yaml ## synthetic + native
 python launch_eval.py -c examples/lighteval_native.yaml ## native
 python launch_eval.py -c examples/lighteval_synthetic.yaml ## synthetic
-python scripts/evaluate_code.py --model_name <your-model-name> ## code
+python launch_eval.py -c examples/evalplus_arabic_code.yaml ## code
 ```
-Modify the configs in the above paths, to specify model and other evaluation params (i.e chat_template, engine...)
-
+Modify the configs in the above paths to specify the model and other evaluation parameters (e.g., chat_template, engine, etc.).
 
 All evaluation is built on:
 - `lighteval` for STEM QA
