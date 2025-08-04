@@ -79,7 +79,7 @@ All evaluation is built on:
 - NativeQA-RDP: https://huggingface.co/datasets/tiiuae/NativeQA-RDP
 - Evalplus-Arabic: https://huggingface.co/datasets/tiiuae/evalplus-arabic
 
-📁 Code datasets are in `data/` and include:
+📁 Code datasets are in `frameworks/evalplus-arabic/evalplus/data/data_files/` and include:
 - `humaneval-ar.json`
 - `mbpp-ar.json`
 
