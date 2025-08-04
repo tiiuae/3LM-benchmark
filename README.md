@@ -80,8 +80,8 @@ All evaluation is built on:
 - Evalplus-Arabic: https://huggingface.co/datasets/tiiuae/evalplus-arabic
 
 📁 Code datasets are in `frameworks/evalplus-arabic/evalplus/data/data_files/` and include:
-- `humaneval-ar.json`
-- `mbpp-ar.json`
+- `HumanEvalPlus.jsonl.gz`
+- `MBPPPlus.jsonl.gz`
 
 ---
 
@@ -92,7 +92,7 @@ All evaluation is built on:
 
 ## 📝 Citation
 
-If you use 3LM in your research, please cite our paper:
+If you use 3LM in your research, please cite our [paper](arxiv.org/pdf/2507.15850):
 
 ```bibtex
 @article{boussaha2025threeLM,
