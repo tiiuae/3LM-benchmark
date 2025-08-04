@@ -9,6 +9,7 @@
   <a href="https://github.com/tiiuae/3LM-benchmark">GitHub</a> ·
   <a href="https://huggingface.co/collections/tiiuae/3lm-arabic-benchmark-687de9629072871e702d35e1">Datasets</a> ·
   <a href="https://arxiv.org/pdf/2507.15850">Paper</a>
+  <a href="https://huggingface.co/blog/tiiuae/3lm-benchmark">Blog</a>
 </p>
 
 ---
