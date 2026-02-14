@@ -92,7 +92,7 @@ All evaluation is built on:
 
 ## 📝 Citation
 
-If you use 3LM in your research, please cite our [paper](https://arxiv.org/pdf/2507.15850):
+If you use 3LM in your research, please cite our [paper](https://aclanthology.org/2025.arabicnlp-main.4"):
 
 ```bibtex
 @inproceedings{boussaha-etal-2025-3lm,
